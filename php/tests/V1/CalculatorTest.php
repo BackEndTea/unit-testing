@@ -6,6 +6,7 @@ namespace App\Test\V1;
 
 use App\V1\Calculator;
 use Generator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 final class CalculatorTest extends TestCase
@@ -19,7 +20,7 @@ final class CalculatorTest extends TestCase
         $this->assertSame(6, $result);
     }
 
-    /** @dataProvider provideAdditionCases */
+    #[DataProvider('provideAdditionCases')]
     public function testItAddsTwoNumbersWithMoreData(int $one, int $two, int $expected): void
     {
         $calc = new Calculator();
@@ -29,7 +30,7 @@ final class CalculatorTest extends TestCase
         $this->assertSame($expected, $result);
     }
 
-    public function provideAdditionCases(): Generator
+    public static function provideAdditionCases(): Generator
     {
         yield [1, 2, 3];
         yield [4, 0, 4];
