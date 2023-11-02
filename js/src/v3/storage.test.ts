@@ -13,6 +13,14 @@ describe('storage v3', () => {
     it('stores numbers', () => {
         storeNumberInStorage(17);
 
+        expect(writeFileSync).toHaveBeenCalledTimes(1);
         expect(writeFileSync).toHaveBeenCalledWith(__dirname + '/storage.txt', '17')
+    });
+
+    it('stores numbers', () => {
+        storeNumberInStorage(12);
+
+        expect(writeFileSync).toHaveBeenCalledTimes(1);
+        expect(writeFileSync).toHaveBeenCalledWith(__dirname + '/storage.txt', '12')
     });
 });

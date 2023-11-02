@@ -21,5 +21,4 @@ export const getNumberFromStorage = (): number => {
     }
 
     return result;
-
 }
